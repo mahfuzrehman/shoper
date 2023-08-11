@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 */
 //Frontend
 Route::get('/', [HomeController::class,'index'])->name('home');
+Route::get('/view-product-details/{id}', [HomeController::class,'viewProductDetails'])->name('view-product-details');
+Route::get('/category/products/{id}', [HomeController::class,'categoryProducts'])->name('category.products');
 // Route::get('/', function () {
 //     return view('frontend.home.home');
 // });

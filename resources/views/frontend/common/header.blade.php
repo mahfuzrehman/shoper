@@ -26,7 +26,7 @@
                     <div class="col-md-3">
                         <div class="header-logo">
                             <a href="" class="logo">
-                                <img src="{{asset('/')}}/assets/img/logo.png" alt="">
+                                <img src="{{route('home')}}/assets/img/logo.png" alt="">
                             </a>
                         </div>
                     </div>
@@ -135,7 +135,7 @@
                 <ul class="main-nav nav navbar-nav">
                     <li class="active"><a href="{{route('home')}}">Home</a></li>
                     @foreach ($categories as $category)
-                        <li><a href="">{{$category->category_name}}</a></li>
+                        <li><a href="{{route('category.products', $category->id)}}">{{$category->category_name}}</a></li>
                     @endforeach
                 </ul>
                 <!-- /NAV -->

@@ -2,7 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use View;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Schema::defaultStringLength(191);
+        View::share('categories', $categories = Category::all());
     }
 }
