@@ -17,4 +17,14 @@
 		<!-- FOOTER -->
 		@include('frontend.common.footer')
 		<!-- /FOOTER -->
-@include('frontend.common.js')
+		@include('frontend.common.js')
+
+		@if(Session::has('msg'))
+			<script>
+				$(document).ready(function () {
+					toastr.success('{{Session::get('msg')}}');
+				})
+			</script>
+        @endif
+	</body>
+</html>

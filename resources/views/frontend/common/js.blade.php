@@ -6,6 +6,4 @@
 		<script src="{{asset('/')}}/assets/js/nouislider.min.js"></script>
 		<script src="{{asset('/')}}/assets/js/jquery.zoom.min.js"></script>
 		<script src="{{asset('/')}}/assets/js/main.js"></script>
-
-	</body>
-</html>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>

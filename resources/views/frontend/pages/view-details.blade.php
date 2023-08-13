@@ -89,18 +89,23 @@
 									</select>
 								</label>
 							</div>
-
+							
+							<form action="{{route('add.cart')}}" method="post">
+							@csrf
 							<div class="add-to-cart">
+								{{-- <input type="hidden" name="quantity" value="1"> --}}
+								<input type="hidden" name="id" value="{{$product->id}}">
 								<div class="qty-label">
 									Qty
 									<div class="input-number">
-										<input type="number">
+										<input type="number" name="quantity" value="1" min="1">
 										<span class="qty-up">+</span>
 										<span class="qty-down">-</span>
 									</div>
 								</div>
 								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 							</div>
+							</form>
 
 							<ul class="product-btns">
 								<li><a href="#"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
