@@ -9,12 +9,9 @@ use Illuminate\Http\Request;
 class CartController extends Controller
 {
     public function addToCart(Request $request) {
-        // $quantity = $request->quantity;
-        // $id = $request->id;
-        // $product = Product::where('id',$id)->first();
         $product = Product::find($request->id);
         Cart::add([
-            'id' => $product->id, // inique row ID
+            'id' => $product->id, // unique row ID
             'name' => $product->product_name,
             'price' => $product->selling_price,
             'quantity' => $request->quantity,
@@ -25,6 +22,15 @@ class CartController extends Controller
         return redirect('/cart/details');
     }
     public function cartDetails() {
-        return view('frontend.pages.cart.showcart');
+        $cartproducts = Cart::getContent();
+        return view('frontend.pages.cart.showcart', compact('cartproducts'));
+    }
+    public function updateCart(Request $request) {
+        Cart::update($request->rowId, $request->quantity);
+        return redirect('/cart/details');
+    }
+    public function deleteCart($id) {
+        Cart::remove($id);
+        return redirect('/cart/details');
     }
 }

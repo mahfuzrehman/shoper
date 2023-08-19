@@ -2,6 +2,7 @@
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
@@ -25,6 +26,10 @@ Route::get('/view-product-details/{id}', [HomeController::class,'viewProductDeta
 Route::get('/category/products/{id}', [HomeController::class,'categoryProducts'])->name('category.products');
 Route::post('/add/cart', [CartController::class,'addToCart'])->name('add.cart');
 Route::get('/cart/details', [CartController::class,'cartDetails'])->name('cartdetails');
+Route::post('/update/cart', [CartController::class,'updateCart'])->name('update-cart');
+Route::get('/delete/cart/{id}', [CartController::class,'deleteCart'])->name('cart.delete');
+Route::get('/checkout/info', [CheckoutController::class,'index'])->name('checkout.info');
+Route::post('/new/customer', [CheckoutController::class,'saveCustomerInfo'])->name('new.customer');
 // Route::get('/', function () {
 //     return view('frontend.home.home');
 // });
@@ -96,7 +101,7 @@ Route::middleware([
     
     Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
     Route::post('/product/update/{id}', [ProductController::class, 'update'])->name('product.update');
-        Route::get('/product/destroy/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
+    Route::get('/product/destroy/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
 
     
     // Route::get('/subcat/create', function() {
